@@ -348,7 +348,7 @@ $(function(){
             var evDiscount = 89332;
             var operatingCostMethodPost = ((totalYearlyBudgetedAmountsExGST * (1 - (businessUse/100))) * 1.1);
             $('#evdText').hide();
-            if ( (fuelType == 3 || fuelType == 4) && driveAwaySubTotalExGST < evDiscount ) {
+            if ( (fuelType == 3 || fuelType == 4) && driveAwayPrice < evDiscount ) {
                 $('#evdText').show();
                 operatingCostMethodPost = 0;
             }
