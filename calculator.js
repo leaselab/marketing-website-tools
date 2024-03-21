@@ -345,7 +345,7 @@ $(function(){
             var statutoryMethodPost = round((fbtCostBase * (20/100)), 2);
             var statutoryMethodPre = round((totalYearlyBudgetedAmountsExGST - statutoryMethodPost + (statutoryMethodPost/11)), 2);
 
-            var evDiscount = 89332;
+            var evDiscount = 94000;
             var operatingCostMethodPost = ((totalYearlyBudgetedAmountsExGST * (1 - (businessUse/100))) * 1.1);
             $('#evdText').hide();
             if ( (fuelType == 3 || fuelType == 4) && driveAwayPrice < evDiscount ) {
