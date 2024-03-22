@@ -340,7 +340,7 @@ $(function(){
             var carInsurance = carTypes[carType].insurance;
 
             var totalRunningCostsPerYear = (fuelBudgetPerYear + maintenancePerYear + tyreBudgetPerYear + vehicleRegistrationFee + carInsurance + annualManagementFee);
-            var totalRunningCostsPerWeek =  round((annualTakeHomePayWithoutPackaging / numWeeksInYear), 2);
+            var totalRunningCostsPerWeek =  round((totalRunningCostsPerYear / numWeeksInYear), 2);
             var totalYearlyBudgetedAmountsExGST = (financePaymentPerYear + totalRunningCostsPerYear);
 
             var statutoryMethodPost = round((fbtCostBase * (20/100)), 2);
