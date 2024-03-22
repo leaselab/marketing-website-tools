@@ -340,6 +340,7 @@ $(function(){
             var carInsurance = carTypes[carType].insurance;
 
             var totalRunningCostsPerYear = (fuelBudgetPerYear + maintenancePerYear + tyreBudgetPerYear + vehicleRegistrationFee + carInsurance + annualManagementFee);
+            var totalRunningCostsPerWeek =  round((annualTakeHomePayWithoutPackaging / numWeeksInYear), 2);
             var totalYearlyBudgetedAmountsExGST = (financePaymentPerYear + totalRunningCostsPerYear);
 
             var statutoryMethodPost = round((fbtCostBase * (20/100)), 2);
@@ -427,6 +428,7 @@ $(function(){
             var totalSavingsOpCostMethod = totalGstSavingsOpCostMethod + incomeTaxLessGstOnECMOpCostMethod;
 
             var weeklyCost = ( weeklyNetCostStatutoryMethod < weeklyNetCostOpCostMethod ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
+            var weeklyCost = ( weeklyNetCostStatutoryMethod -  < weeklyNetCostOpCostMethod ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
             weeklyCost = round(weeklyCost, 0);
             weeklyCost = '$' + weeklyCost.toLocaleString();
 
@@ -474,7 +476,7 @@ $(function(){
             $('#weeklyCost').text(yearlyTaxSavings);
             $('#weekly_net_cost').val(weeklyCost);
             $('#weeklyCostForCalculator').text(weeklyCost);
-
+            $('#weeklyCarPaymentForCalculator').text(weeklyCost - totalRunningCostsPerWeek);
         }
         else {
             var parameters = '?';
