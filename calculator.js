@@ -429,6 +429,9 @@ $(function(){
 
             var weeklyCost = ( weeklyNetCostStatutoryMethod < weeklyNetCostOpCostMethod ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
             weeklyCost = round(weeklyCost, 0);
+
+            var weeklyCostForCalculator = weeklyCost;
+            
             weeklyCost = '$' + weeklyCost.toLocaleString();
 
             var annualCost = ( annualNetCostStatutoryMethod < annualNetCostOpCostMethod ? annualNetCostStatutoryMethod : annualNetCostOpCostMethod );
@@ -475,7 +478,7 @@ $(function(){
             $('#weeklyCost').text(yearlyTaxSavings);
             $('#weekly_net_cost').val(weeklyCost);
             $('#weeklyCostForCalculator').text(weeklyCost);
-            $('#weeklyCarPaymentForCalculator').text(weeklyCost - totalRunningCostsPerWeek);
+            $('#weeklyCarPaymentForCalculator').text(weeklyCostForCalculator - totalRunningCostsPerWeek);
         }
         else {
             var parameters = '?';
