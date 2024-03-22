@@ -434,7 +434,8 @@ $(function(){
             
             weeklyCost = round(weeklyCost, 0);
 
-            var weeklyCostForCalculator = weeklyCostForCarOnly;
+            var weeklyCostForCalculator = weeklyCost - totalRunningCostsPerWeek;
+            // var weeklyCostForCalculator = weeklyCostForCarOnly;
             weeklyCostForCalculator = '$' + weeklyCostForCalculator.toLocaleString();
             
             weeklyCost = '$' + weeklyCost.toLocaleString();
