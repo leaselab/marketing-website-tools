@@ -399,6 +399,7 @@ $(function(){
             var carGstExRvGstStatutoryMethod = claimableGST;
 
             var runningCostGstStatutoryMethod = round((((totalYearlyBudgetedAmountsExGST / 12) * 0.1) - ((statutoryMethodPost / 12) / 11)), 2) * termMonths;
+            var runningCostStatutoryMethodWeekly = round((((totalYearlyBudgetedAmountsExGST / 52)) - ((statutoryMethodPost / 52))), 2) * termMonths * 12 / 52;
             var totalGstSavingsStatutoryMethod = carGstExRvGstStatutoryMethod + runningCostGstStatutoryMethod;
             var incomeTaxLessGstOnECMStatutoryMethod = round((((incomeTaxWithoutPackaging - incomeTaxStatutoryMethod)/12) * termMonths), 2);
             var totalSavingsStatutoryMethod = totalGstSavingsStatutoryMethod + incomeTaxLessGstOnECMStatutoryMethod;
@@ -423,14 +424,17 @@ $(function(){
             // Operating Cost - Savings
             var carGstExRvGstOpCostMethod = claimableGST;
             var runningCostGstOpCostMethod = round((((totalYearlyBudgetedAmountsExGST / 12) * 0.1) - ((operatingCostMethodPost / 12) / 11)), 2) * termMonths;
+            var runningCostOpCostMethodWeekly = round((((totalYearlyBudgetedAmountsExGST / 52)) - ((operatingCostMethodPost / 52))), 2) * termMonths * 12 / 52;
             var totalGstSavingsOpCostMethod = round((carGstExRvGstOpCostMethod + runningCostGstOpCostMethod), 2);
             var incomeTaxLessGstOnECMOpCostMethod = ((incomeTaxWithoutPackaging - incomeTaxOpCostMethod)/12) * termMonths;
             var totalSavingsOpCostMethod = totalGstSavingsOpCostMethod + incomeTaxLessGstOnECMOpCostMethod;
 
             var weeklyCost = ( weeklyNetCostStatutoryMethod < weeklyNetCostOpCostMethod ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
+            var weeklyCostForCarOnly = ( weeklyNetCostStatutoryMethod - runningCostStatutoryMethodWeekly < weeklyNetCostOpCostMethod - runningCostOpCostMethodWeekly ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
+            
             weeklyCost = round(weeklyCost, 0);
 
-            var weeklyCostForCalculator = weeklyCost - totalRunningCostsPerWeek;
+            var weeklyCostForCalculator = weeklyCostForCarOnly;
             weeklyCostForCalculator = '$' + weeklyCostForCalculator.toLocaleString();
             
             weeklyCost = '$' + weeklyCost.toLocaleString();
