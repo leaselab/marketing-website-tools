@@ -430,10 +430,6 @@ $(function(){
             weeklyCost = round(weeklyCost, 0);
             weeklyCost = '$' + weeklyCost.toLocaleString();
 
-            // Temporary fix as we can't change id in Webflow. Change this back to weeklyCost when we figure out
-            $('#weeklyCost').text(yearlyTaxSavings);
-            $('#weekly_net_cost').val(weeklyCost);
-
             var annualCost = ( annualNetCostStatutoryMethod < annualNetCostOpCostMethod ? annualNetCostStatutoryMethod : annualNetCostOpCostMethod );
             annualCost = round(annualCost, 0);
             annualCostString = '$' + annualCost.toLocaleString();
@@ -473,6 +469,10 @@ $(function(){
             estimateTaxSavingsString = estimateTaxSavingsString.toLocaleString() + '%';
 
             $('#yearlyTaxSavings').text(yearlyTaxSavings);
+            
+            // Temporary fix as we can't change id in Webflow. Change this back to weeklyCost when we figure out
+            $('#weeklyCost').text(yearlyTaxSavings);
+            $('#weekly_net_cost').val(weeklyCost);
         }
         else {
             var parameters = '?';
