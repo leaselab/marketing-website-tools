@@ -428,7 +428,6 @@ $(function(){
             var totalSavingsOpCostMethod = totalGstSavingsOpCostMethod + incomeTaxLessGstOnECMOpCostMethod;
 
             var weeklyCost = ( weeklyNetCostStatutoryMethod < weeklyNetCostOpCostMethod ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
-            var weeklyCost = ( weeklyNetCostStatutoryMethod -  < weeklyNetCostOpCostMethod ? weeklyNetCostStatutoryMethod : weeklyNetCostOpCostMethod );
             weeklyCost = round(weeklyCost, 0);
             weeklyCost = '$' + weeklyCost.toLocaleString();
 
